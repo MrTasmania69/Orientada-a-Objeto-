@@ -1,4 +1,4 @@
-from Electrodomestico import Electrodomestico
+from Electrodomesticos import Electrodomesticos
 from os import system
 import os
 
@@ -9,7 +9,7 @@ class Principal:
     __mar = 0
     __pre = 0
     __fab = ""
-    __ele = Electrodomestico()
+    __ele = Electrodomesticos()
     __lista = []
     
     def __init__(self):
@@ -25,7 +25,7 @@ class Principal:
             print("4. Listar Solo Mademsa.")
             print("5. Estadistica.")
             print("6. Salir Del Programa.")
-            op = int(input("Escoga Una Opcion : "))
+            op = int(input("Introduzca Una Opcion : "))
             if op ==1:
                 self.agregar()
             elif op == 2:
@@ -42,7 +42,7 @@ class Principal:
             else:
                 self.errorOpcion()                     
         except:
-            print("\n--- Ocurrio un error Al Intentar Ejecutar La Opcion ---")
+            print("\n--- Error Al Intentar Ejecutar La Opcion!!!---")
             system("pause")
             self.menu()
         
@@ -51,9 +51,9 @@ class Principal:
         while True:
             try:
                 system("cls")
-                cod = int(input("Ingrese el Codigo Del Producto ("+str(len(self.__lista)+1)+") : "))
+                cod = int(input("Digite El Codigo Del Producto ("+str(len(self.__lista)+1)+") : "))
                 if cod<1 or cod>99999:
-                    print("\n--- El Codigo Debe Tener Hasta 5 Digitos ---")
+                    print("\n--- El Codigo Debe Tener Hasta 5 Digitos!!! ---")
                     system("pause")
                 else:
                     res = False 
@@ -62,12 +62,12 @@ class Principal:
                             res = True
                     
                     if res==True:
-                        print("\n--- El Codigo ",cod," Ya se encuentra almacenado!! ---")
+                        print("\n--- El Codigo ",cod," Ya Existe!! ---")
                         system("pause")  
                     else:
                         break            
             except:
-                print("\n--- Error Al Intentar Ejecutar La Opcion ---")
+                print("\n--- Error Al Intentar Ejecutar La Opcion!!!---")
                 system("pause")
         
         while True:
@@ -80,7 +80,7 @@ class Principal:
                 else:
                     break
             except:
-                print("\n--- Ocurrio un Error Al Intentar Almacenar El Nombre ---")
+                print("\n--- Error Al Intentar Almacenar El Nombre!! ---")
                 system("pause")
         
         while True:
@@ -90,12 +90,12 @@ class Principal:
                 print("2. Mademsa.")
                 mar = int(input("Digite La Marca Del Producto ("+str(len(self.__lista)+1)+") : "))
                 if mar!=1 and mar!=2:
-                    print("\n--- Ocurrio un Error De Opcion en la Marca ---")
+                    print("\n--- Error De Opcion De Marca!! ---")
                     system("pause")
                 else:
                     break
             except:
-                print("\n--- Ocurrio un error Al Intentar almacenar la Marca ---")
+                print("\n--- Error Al Intentar Almacenar La Marca!! ---")
                 system("pause")
             
         while True:
@@ -121,10 +121,10 @@ class Principal:
                 else:
                     break
             except:
-                print("\n--- Ocurrio un error Al Intentar almacenar el Nombre ---")
+                print("\n--- Error Al Intentar Almacenar El Nombre!! ---")
                 system("pause")
         
-        self.__ele = Electrodomestico()
+        self.__ele = Electrodomesticos()
         self.__ele.setCodigo(cod)
         self.__ele.setNombre(nom)
         self.__ele.setMarca(mar)
@@ -137,7 +137,7 @@ class Principal:
         if len(self.__lista) == 0:
             system("cls")
             print("----------------------------------------------------")
-            print("--- No se encontraron Productos ---")
+            print("--- No Hay Registros De Productos Para Listar!!! ---")
             print("----------------------------------------------------")
             system("pause")
             self.menu()
@@ -162,14 +162,14 @@ class Principal:
         if len(self.__lista) == 0:
            system("cls")
            print("----------------------------------------------------")
-           print("--- NO SE ENCUENTRA NINGUN REGISTRO DEL PRODUCTO SOLOFENSA ---")
+           print("--- No Hay Registros De Productos Para Solo Fensa!!! ---")
            print("----------------------------------------------------")
            system("pause")
            self.menu()
         else:             
             try:
                 system("cls")
-                cod = int(input("Ingrese el Codigo Del Producto Deseado : "))
+                cod = int(input("Digite El Codigo Del Producto Deseado : "))
                 res = False
                 for x in self.__lista:
                     if cod==x.getCodigo():
@@ -190,11 +190,11 @@ class Principal:
                         self.menu()
                     
                     if res== False:
-                        print("--- El Codigo Ingresado No Existe ---")
+                        print("--- El Codigo Buscado No Existe!!! ---")
                     system("pause")
                     self.menu()       
             except:
-                    print("\n--- Ocurrio un error al Intentar almacenar El Codigo ---")
+                    print("\n--- Error Al Intentar Almacenar El Codigo Buscado!! ---")
                     system("pause")
                     self.menu()
                      
@@ -203,14 +203,14 @@ class Principal:
             if len(self.__lista) == 0:
                 system("cls")
                 print("----------------------------------------------------")
-                print("--- No se encontraron productos de Solo Fensa ---")
+                print("--- No Hay Registros De Productos Para Solo Fensa!!! ---")
                 print("----------------------------------------------------")
                 system("pause")
                 self.menu()
             else:             
                  try:
                     system("cls")
-                    cod = int(input("Ingrese el codigo del producto Deseado : "))
+                    cod = int(input("Digite El Codigo Del Producto Deseado : "))
                     res = False
                     for x in self.__lista:
                         if cod==x.getCodigo():
@@ -231,11 +231,11 @@ class Principal:
                             self.menu()
                     
                         if res== False:
-                         print("--- El Codigo ingresado no existe ---")
+                         print("--- El Codigo Buscado6 No Existe!!! ---")
                         system("pause")
                         self.menu()       
                  except:
-                     print("\n--- Ocurrio un error al Intentar Almacenar El Codigo ---")
+                     print("\n--- Error Al Intentar Almacenar El Codigo Buscado!! ---")
                      system("pause")
                      self.menu()
     
@@ -243,7 +243,7 @@ class Principal:
         if len(self.__lista) == 0:
             system("cls")
             print("------------------------------------------------------")
-            print("--- No Se encuentran datos para generar la estadistica ---")
+            print("--- No Hay Registros Para Generar La Estadistica!! ---")
             print("------------------------------------------------------")
             system("pause")
             self.menu()
@@ -280,7 +280,7 @@ class Principal:
         try:
                 system("cls")
                 print ("---------------------")
-                print ("--- ¿Desea Cerrar? ---")
+                print ("--- ¿Desea Salir? ---")
                 print ("--- 1.SI     2.NO ---")
                 print ("---------------------")
                 salir = int(input("Digite Su Opcion A Elegir: "))
@@ -294,17 +294,17 @@ class Principal:
             
                 elif salir == 1:
                      print ("-------------------")
-                     print ("--- Nos vemos:) ---")
+                     print ("--- Hasta Luego ---")
                      print ("-------------------")
                      system("pause")
                 elif salir == 2:
                     print("-------------------------")
-                    print("--- Regresando Al Menu ---")
+                    print("--- Volviendo Al Menu ---")
                     print("-------------------------")
                     self.menu()
                  
         except:
-            print("\n--- Ocurrio un Error ---")
+            print("\n--- Error De Opcion!!! ---")
             system("pause") 
             self.salir()
           
